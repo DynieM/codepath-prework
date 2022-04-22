@@ -24,15 +24,21 @@
     <button id="startBtn" onclick="startGame()">Start</button>
     <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
 
+
+   
     <div id="gameButtonArea">
-      <button id="button1" onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()"
-     ></button>
-      <button id="button2" onclick="guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"
-></button>
-      <button id="button3" onclick="guess(3)" onmousedown="startTone(3)" onmouseup="stopTone()"
-></button>
-      <button id="button4" onclick="guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"
-></button>
+      <button id="button1"  onclick= "myFunction(duck); guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()" 
+   ><img src="https://cdn.glitch.global/e440e918-cf94-4004-a408-1031feb644a1/duck.png?v=1650508237550" id="duck"></button>
+      <button id="button2" onclick="myFunction2(horse); guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"
+><img src = "https://cdn.glitch.global/e440e918-cf94-4004-a408-1031feb644a1/horse.png?v=1650508248179" id="horse"></button>
+      <button id="button3" onclick="myFunction3(cow); guess(3)" onmousedown="startTone(3)" onmouseup="stopTone()"
+><img src = "https://cdn.glitch.global/e440e918-cf94-4004-a408-1031feb644a1/cow.png?v=1650508229470"   id="cow"></button>
+      <button id="button4" onclick="myFunction4(goat); guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"
+><img src = "https://cdn.glitch.global/e440e918-cf94-4004-a408-1031feb644a1/goat.png?v=1650508241023" id="goat"></button>
+      <button id="button5" onclick="myFunction5(sheep);guess(5)" onmousedown="startTone(5)" onmouseup="stopTone()"
+><img src="https://cdn.glitch.global/e440e918-cf94-4004-a408-1031feb644a1/sheep.png?v=1650508251354" id="sheep"></button>
+      <button id="button6" onclick="myFunction6(hen); guess(6)" onmousedown="startTone(6)" onmouseup="stopTone()"
+><img src= "https://cdn.glitch.global/e440e918-cf94-4004-a408-1031feb644a1/hen.png?v=1650508244507" id="hen"></button>
     </div>
   </body>
 </html>
