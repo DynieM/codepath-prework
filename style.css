@@ -23,6 +23,7 @@ body {
 
 h1 {
   font-family: Courier New, arial, sans-serif;
+  text-align: center;
 }
 
 button {
@@ -52,6 +53,12 @@ button {
 #button4 {
   background: lightyellow;
 }
+#button5 {
+  background: sandybrown;
+}
+#button6 {
+  background: plum;
+}
 #button1:active, #button1.lit {
   background: green;
 }
@@ -64,8 +71,56 @@ button {
 #button4:active, #button4.lit {
   background: yellow;
 }
+#button5:active, #button5.lit {
+  background: sienna;
+}
+#button6:active, #button6.lit {
+  background: purple;
+  
+}
+p
+{
+  text-align:center;
+}
+
+#button1 img
+{
+    visibility:hidden;
+    height: 140px;  
+    width: 130px;
+}
+#button2 img
+{
+    visibility:hidden;
+    height: 140px;  
+    width: 140px;
+}
+#button3 img
+{
+    visibility:hidden;
+    height: 140px;  
+    width: 150px;
+}
+#button4 img
+{
+    visibility:hidden;
+    height: 140px;  
+    width: 160px;
+}
+#button5 img
+{
+    visibility:hidden;
+    height: 140px;  
+    width: 140px;
+}
+#button6 img
+{
+    visibility:hidden;
+    height: 140px;  
+    width: 130px;
+}
 /* images and videos max out at full width */
-img,
+img
 video {
   height: auto;
   max-width: 100%;

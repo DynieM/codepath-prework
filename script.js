@@ -2,16 +2,33 @@
     to your site with Javascript */
 
 // global constants
-const clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback of the clue sequence
 //Global Variables
-var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
+//var pattern = [2, 5, 4, 6, 2, 1, 3, 4];
+var pattern = [1, 2, 3, 4, 5, 6];
 var progress = 0;
 var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5; //must be between 0.0 and 1.0
 var guessCounter = 0;
+var clueHoldTime = 1000;
+var numOfMistakes = 0;
+
+function patternp(pattern)
+{
+  
+    for (var i = pattern.length - 1; i > 0; i--) 
+    {
+      //select random index
+        var k = Math.floor(Math.random() * (i + 1));
+      //place index in temp variable
+       var temp = pattern[i];
+      //switch indexes
+        pattern[i] = pattern[k];
+        pattern[k] = temp;
+    }
+}
 
 function startGame() {
   //initialize game variables
@@ -20,7 +37,9 @@ function startGame() {
   // swap the Start and Stop buttons
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
-  playClueSequence()
+  patternp(pattern);
+  playClueSequence();
+  numOfMistakes = 0;
 }
 
 function stopGame() {
@@ -32,10 +51,12 @@ function stopGame() {
 
 // Sound Synthesis Functions
 const freqMap = {
-  1: 261.6,
-  2: 329.6,
-  3: 392,
-  4: 466.2,
+  1: 230,
+  2: 300,
+  3: 350,
+  4: 420,
+  5: 470,
+  6: 530
 };
 
 function playTone(btn, len) {
@@ -63,69 +84,106 @@ function stopTone() {
   tonePlaying = false;
 }
 
-function lightButton(btn){
-  document.getElementById("button"+btn).classList.add("lit")
+function lightButton(btn) {
+  document.getElementById("button" + btn).classList.add("lit");
 }
-function clearButton(btn){
-  document.getElementById("button"+btn).classList.remove("lit")
+function clearButton(btn) {
+  document.getElementById("button" + btn).classList.remove("lit");
 }
 
-function playSingleClue(btn){
-  if(gamePlaying){
+function playSingleClue(btn) {
+  if (gamePlaying) {
     lightButton(btn);
-    playTone(btn,clueHoldTime);
-    setTimeout(clearButton,clueHoldTime,btn);
+    playTone(btn, clueHoldTime);
+    setTimeout(clearButton, clueHoldTime, btn);
   }
 }
 
-function playClueSequence(){
-  context.resume()
+function playClueSequence() {
+  context.resume();
   guessCounter = 0;
   let delay = nextClueWaitTime; //set delay to initial wait time
-  for(let i=0;i<=progress;i++){ // for each clue that is revealed so far
-    console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
-    setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
-    delay += clueHoldTime 
+  for (let i = 0; i <= progress; i++) {
+    // for each clue that is revealed so far
+    console.log("play single clue: " + pattern[i] + " in " + delay + "ms");
+    setTimeout(playSingleClue, delay, pattern[i]); // set a timeout to play that clue
+    delay += clueHoldTime;
     delay += cluePauseTime;
   }
+  clueHoldTime -= 50;
 }
 
-function loseGame(){
+function loseGame() {
   stopGame();
   alert("Game Over. You lost.");
+  clueHoldTime = 1000;
 }
 
-function winGame(){
+function winGame() {
   stopGame();
   alert("Congrats. You won!");
+  clueHoldTime = 1000;
 }
 
-function guess(btn){
+function guess(btn) {
   console.log("user guessed: " + btn);
-  
-  if(!gamePlaying){
+
+  if (!gamePlaying) {
     return;
   }
-  
-  if(pattern[guessCounter] == btn){
-    //Guess was correct!
-    if(guessCounter == progress){
-      if(progress == pattern.length - 1){
-        //GAME OVER: WIN!
+
+ if (pattern[guessCounter] == btn) {
+    //Correct Guess
+    if (guessCounter == progress)
+    {
+      if (progress == pattern.length - 1) 
+      {
+        //Player Wins
         winGame();
-      }else{
+      }
+      else if (progress != pattern.length - 1)
+      {
         progress++;
         playClueSequence();
       }
-    }else{
+    }
+     else if (guessCounter != progress) 
+    {
       guessCounter++;
     }
-  }else{
-    //Guess was incorrect
-    //GAME OVER: LOSE!
+  } 
+  else 
+  {
+    //Incorrect Guess
+    //Player Loses
+    numOfMistakes++;
+    playClueSequence();
+    if(numOfMistakes == 3)
+      {
     loseGame();
-  }
-}    
+      }
+  } 
+
+}
+
+function myFunction() {
+  document.getElementById("duck").style.visibility="visible";
+}
+function myFunction2() {
+  document.getElementById("horse").style.visibility="visible";
+}
+function myFunction3() {
+  document.getElementById("cow").style.visibility="visible";
+}
+function myFunction4() {
+  document.getElementById("goat").style.visibility="visible";
+}
+function myFunction5() {
+  document.getElementById("sheep").style.visibility="visible";
+}
+function myFunction6() {
+  document.getElementById("hen").style.visibility="visible";
+}
 // Page Initialization
 // Init Sound Synthesizer
 var AudioContext = window.AudioContext || window.webkitAudioContext;
