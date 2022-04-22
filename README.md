@@ -50,7 +50,7 @@ Game play until user wins/loses and a pop up appears:
 
 New random pattern and three strikes feature:
 
-![GamePlay3] ![ezgif com-gif-maker](https://user-images.githubusercontent.com/102767729/164793941-c29b5559-3702-4678-a407-9a7fddf39330.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/102767729/164793941-c29b5559-3702-4678-a407-9a7fddf39330.gif)
 
 
 ## Reflection Questions
