@@ -39,13 +39,18 @@ The following **additional** features are implemented:
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![]![GamePlay](https://user-images.githubusercontent.com/102767729/164316296-085c3ab4-e9f7-470c-b1e9-30dd821d2fca.gif)
 
-![]![GamePlay2](https://user-images.githubusercontent.com/102767729/164316362-77136d8d-0146-4feb-95e1-e659804c983e.gif)
+Start game and animals pop up on each buttion pressed:
 
-![]![GamePlay3](https://user-images.githubusercontent.com/102767729/164316381-ecc39d89-afa2-491e-adf2-618b5a663c37.gif)
+![GamePlay](https://user-images.githubusercontent.com/102767729/164792596-26bd576a-bb79-4e73-90cc-c66db1cd2189.gif)
 
-![]![GamePlay4](https://user-images.githubusercontent.com/102767729/164316400-b1a8447e-c2b5-444c-b517-c1eaf13c32c9.gif)
+Game play until user wins/loses and a pop up appears:
+
+![GamePlay2](https://user-images.githubusercontent.com/102767729/164792622-cc2e82d6-788c-4c1d-8726-ecb5a856fd90.gif)
+
+New random pattern and three strikes feature:
+
+![GamePlay3] ![ezgif com-gif-maker](https://user-images.githubusercontent.com/102767729/164793941-c29b5559-3702-4678-a407-9a7fddf39330.gif)
 
 
 ## Reflection Questions
